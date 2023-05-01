@@ -13,10 +13,10 @@
 
 ### Association
 
-- has_many :prototypes
+- has_many :events
 - has_many :comments
 
-## prototypes テーブル
+## events テーブル
 
 | Column     | Type      | Options                        |
 | ---------- | --------- | ------------------------------ |
@@ -35,10 +35,10 @@
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | content   | text       | null: false                    |
-| prototype | references | null: false, foreign_key: true |
+| event     | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :prototype
+- belongs_to :event
