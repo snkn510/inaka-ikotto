@@ -15,17 +15,17 @@
             <td class="table__col2"><%= @user.profile %></td>
           </tr>
           <tr>
-            <th class="table__col1">所属</th>
+            <th class="table__col1">職業</th>
             <td class="table__col2"><%= @user.occupation %></td>
           </tr>
           <tr>
-            <th class="table__col1">役職</th>
+            <th class="table__col1">使用言語</th>
             <td class="table__col2"><%= @user.position %></td>
           </tr>
         </tbody>
       </table>
       <h2 class="page-heading">
-        <%= @user.name + "さんのプロトタイプ"%>
+        <%= @user.name + "さんのイベント一覧"%>
       </h2>
       <div class="user__card">
         <%= render partial: 'events/event', collection: @events %>

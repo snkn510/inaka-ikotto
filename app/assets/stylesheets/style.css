@@ -153,6 +153,11 @@ a {
 .card__summary {
   font-size: 16px;
 }
+
+.card__price {
+  font-size: 16px;
+}
+
 .card__user {
   display: block;
   font-size: 12px;
@@ -208,6 +213,21 @@ a {
   border-radius: 3px;
   transition: 0.4s ease;
   margin: 0 4px;
+}
+
+.event__orange__btn{
+  display: block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #ffffff;
+  text-decoration: none;
+  user-select: none;
+  border: 1px orange solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+  background-color: orange;
+  font-weight: bold;
 }
 .event__btn:hover{
   color: #fff;

@@ -1,0 +1,99 @@
+
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">イベント内容
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">イベント名</th>
+            <td class="table__col2"><%= @event.title %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">体験できること</th>
+            <td class="table__col2"><%= @event.catch_copy %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">料金に含まれるもの</th>
+            <td class="table__col2"><%= @event.concept %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">料金（一人当たり）</th>
+            <td class="table__col2"><%= @event.price %>円</td>
+          </tr>
+          <tr>
+            <th class="table__col1">主催者</th>
+            <td class="table__col2"><%= link_to @event.user.name, user_path(@event.user) %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">イベントのイメージ
+      </h2>
+      <div class="user__card">
+         <%= image_tag @event.image %>
+      </div>
+
+    <%= form_with(model: @booking_guest, url: event_bookings_path(@event), local: true) do |f| %>
+        <%= render 'shared/error_messages', model: @booking_guest %>
+      <h2 class="page-heading">お客さま情報</h2>
+      <div class="field">
+      <%= f.label :last_name, "お名前（姓）" %>
+      <span class="indispensable">必須</span>
+      <%= f.text_field :last_name %>
+      </div>
+      <div class="field">
+      <%= f.label :first_name, "お名前（名）" %>
+      <span class="indispensable">必須</span>
+      <%= f.text_field :first_name %>
+      </div>
+      <div class="field">
+        <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
+        <span class="indispensable">必須</span>
+        <%= f.text_field :phone_number, placeholder:"例）09012345678",maxlength:"11"%>
+      </div>
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %>
+        <span class="indispensable">必須</span>
+        <%= f.text_field :email, placeholder:"例）sample@sample.com"%>
+      </div>
+      <div class="field">
+        <%= f.label :date, "希望日" %>
+        <span class="indispensable">必須</span>
+        <%= f.date_field :date %>
+      </div>
+      <div class="field">
+        <%= f.label :message, "到着予定時刻" %>
+        <span class="indispensable">/ 人数</span>
+        <%= f.text_area :message, placeholder:"例）10時 / 大人2人・子供1人（２歳）" %>
+      </div>
+      <h2 class="page-heading">お支払い情報</h2>
+     <div class='field'>
+     <p>カード番号</p>
+     <span class="indispensable">必須</span>
+     <div id="number-form" class="input-default"></div>
+      <div class='available-card'>
+        <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+        <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+        <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
+        <%= image_tag 'card-amex.gif', class: 'card-logo'%>
+      </div>
+     </div>
+      <div class='field'>
+        <p>期限</p>
+        <span class="indispensable">必須</span>
+        <div id="expiry-form" class="input-default"></div>
+      </div>
+      <div class='field'>
+        <p>カード背面4桁もしくは3桁の番号</p>
+        <span class="indispensable">必須</span>
+        <div id="cvc-form" class="input-default"></div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "予約する" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
