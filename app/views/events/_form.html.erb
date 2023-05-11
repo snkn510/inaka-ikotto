@@ -1,25 +1,30 @@
 <%= form_with model: event, local: true do |f|%>
   <div class="field">
     <%= f.label :title, "イベントの名称" %><br />
-    <%= f.text_field :title, id:"prototype_title" %>
+    <%= f.text_field :title, id:"event_title" %>
   </div>
 
   <div class="field">
-    <%= f.label :catch_copy, "キャッチコピー" %><br />
-    <%= f.text_area :catch_copy, class: :form__text, id:"prototype_catch_copy" %>
+    <%= f.label :catch_copy, "体験できること" %><br />
+    <%= f.text_area :catch_copy, class: :form__text, id:"event_catch_copy" %>
   </div>
 
   <div class="field">
-    <%= f.label :concept, "コンセプト" %><br />
-    <%= f.text_area :concept, class: :form__text, id:"prototype_concept" %>
+    <%= f.label :concept, "料金に含まれるもの" %><br />
+    <%= f.text_area :concept, class: :form__text, id:"event_concept" %>
   </div>
 
   <div class="field">
     <%= f.label :image, "イベントのイメージ画像" %><br />
-    <%= f.file_field :image, id:"prototype_image" %>
+    <%= f.file_field :image, id:"event_image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "イベントの料金" %><br />
+    <%= f.text_field :price, id:"event_fee" %>円
   </div>
 
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn  %>
+    <%= f.submit "公開する", class: :form__btn  %>
   </div>
 <% end %>

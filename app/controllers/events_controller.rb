@@ -38,6 +38,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event.bookings.destroy_all
     @event.destroy
     redirect_to root_path
   end
@@ -45,7 +46,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+    params.require(:event).permit(:title, :catch_copy, :concept, :image, :price).merge(user_id: current_user.id)
   end
 
   def set_event

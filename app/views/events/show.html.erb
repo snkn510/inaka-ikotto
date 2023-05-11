@@ -1,34 +1,41 @@
 <main class="main">
   <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
+    <div class="event__wrapper">
+      <p class="event__hedding">
         <%= @event.title %>
+        <%= @event.price %>円 / 人数
       </p>
-      <%= link_to "by " + @event.user.name, user_path(@event.user), class: :prototype__user %>
-      <% if user_signed_in? && current_user.id == @event.user_id %>
-        <div class="prototype__manage">
-          <%= link_to "編集する", edit_event_path(@event.id), class: :prototype__btn %>
-          <%= link_to "削除する", event_path(@event.id), method: :delete, class: :prototype__btn %>
+    
+      
+      <%= link_to "by " + @event.user.name, user_path(@event.user), class: :event__user %>
+      <% if user_signed_in? %>
+        <div class="event__manage">
+        <% if current_user.id == @event.user.id %>
+          <%= link_to "編集する", edit_event_path(@event.id), class: :event__btn %>
+          <%= link_to "削除する", event_path(@event.id), method: :delete, class: :event__btn %>
+        <% else %>
+          <%= link_to "予約画面に進む", event_bookings_path(@event),class: :event__orange__btn %>
+        <% end %>
         </div>
       <% end %>
-      <div class="prototype__image">
+      <div class="event__image">
         <%= image_tag @event.image %>
       </div>
-      <div class="prototype__body">
-        <div class="prototype__detail">
-          <p class="detail__title">キャッチコピー</p>
+      <div class="event__body">
+        <div class="event__detail">
+          <p class="detail__title">体験できること</p>
           <p class="detail__message">
             <%= @event.catch_copy %>
           </p>
         </div>
-        <div class="prototype__detail">
-          <p class="detail__title">コンセプト</p>
+        <div class="event__detail">
+          <p class="detail__title">料金に含まれるもの</p>
           <p class="detail__message">
             <%= @event.concept %>
           </p>
         </div>
       </div>
-      <div class="prototype__comments">
+      <div class="event__comments">
         <% if user_signed_in? %>
           <%= form_with model:  [@event, @comment],local: true do |f|%>
             <div class="field">
