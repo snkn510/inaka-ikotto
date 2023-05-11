@@ -8,13 +8,13 @@ inaka-ikotto （田舎行こっと）
 https://inaka-ikotto.onrender.com
 
 # テスト用アカウント
-*Basic認証ID：admin
-*Basic認証PASS：5555
-*テスト用メールアドレス：222@222
-*テスト用パスワード：222bbb
-*テスト用カード番号：4242424242424242
-*テスト用カード有効期限：12/24
-*テスト用カードCVC：123
+・Basic認証ID：admin
+・Basic認証PASS：5555
+・テスト用メールアドレス：222@222
+・テスト用パスワード：222bbb
+・テスト用カード番号：4242424242424242
+・テスト用カード有効期限：12/24
+・テスト用カードCVC：123
 
 # 利用方法
 ## イベント投稿
@@ -49,13 +49,16 @@ https://docs.google.com/spreadsheets/d/1wzg6_fK7ZsDjemGfx-eLMEDRnARW6RKDrAiVbRtN
 作成途中
 
 # 開発環境
-*フロントエンド
-*バックエンド
-*インフラ
-*テキストエディタ
+・フロントエンド
+・バックエンド
+・インフラ
+・テキストエディタ
 
 # ローカルでの動作方法
 % git clone https://github.com/snkn510/inakaikotto.git
+
 % cd 
+
 % bundle install
+
 % yarn install
