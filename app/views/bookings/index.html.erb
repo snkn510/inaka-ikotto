@@ -63,9 +63,26 @@
         <%= f.date_field :date %>
       </div>
       <div class="field">
+        <%= f.label :adult, "大人の人数" %>
+        <span class="indispensable">必須</span>
+        <%= f.text_field :adult, id: "adult_number" %>名
+      </div>
+      <div class="field">
+        <%= f.label :child, "子供の人数(３歳以上)" %>
+        <span class="indispensable">必須</span>
+        <%= f.text_field :child, id: "child_number" %>名
+      </div>
+      <div class="fee-content">
+        <span>合計金額</span>
+        <span>
+          <span id='sum-fee'></span>円
+        </span>
+      </div>
+
+      <div class="field">
         <%= f.label :message, "到着予定時刻" %>
-        <span class="indispensable">/ 人数</span>
-        <%= f.text_area :message, placeholder:"例）10時 / 大人2人・子供1人（２歳）" %>
+        <span class="indispensable">任意</span>
+        <%= f.text_area :message, placeholder:"例）10時" %>
       </div>
       <h2 class="page-heading">お支払い情報</h2>
      <div class='field'>
