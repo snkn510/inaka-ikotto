@@ -1,44 +1,61 @@
-# テーブル設計
+# アプリケーション名
+inaka-ikotto （田舎行こっと）
 
-## users テーブル
+# アプリケーション概要
+都会の家族と過疎地の家をマッチングし、田舎ならではの遊びや体験が売り買いできるアプリです。
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| name               | string | null: false               |
-| profile            | text   | null: false               |
-| occupation         | text   | null: false               |
-| position           | text   | null: false               |
+# URL
+https://inaka-ikotto.onrender.com
 
-### Association
+# テスト用アカウント
+*Basic認証ID：admin
+*Basic認証PASS：5555
+*テスト用メールアドレス：222@222
+*テスト用パスワード：222bbb
+*テスト用カード番号：4242424242424242
+*テスト用カード有効期限：12/24
+*テスト用カードCVC：123
 
-- has_many :events
-- has_many :comments
+# 利用方法
+## イベント投稿
+1. トップページ（一覧ページ）のヘッダーからユーザー新規登録を行う
+2. 「New Event」ボタンから、イベントの内容(イベントの名称、体験できること、料金に含まれるもの、イベントのイメージ、イベントの料金)を入力し、公開する
+3. 適宜コメントで情報を追加する
 
-## events テーブル
+## イベント予約
+1. トップページ（一覧ページ）のヘッダーからユーザー新規登録を行う
+2. 一覧ページの中のイベント画像からイベント詳細に移動し、「予約画面へ進む」を押すと、お客さま情報やカード情報を入力し予約する
+3. イベント主催者に質問等あればイベント詳細ページのコメント欄から質問できる
 
-| Column     | Type      | Options                        |
-| ---------- | --------- | ------------------------------ |
-| title      | string    | null: false                    |
-| catch_copy | text      | null: false                    |
-| concept    | text      | null: false                    |
-| user       | reference | null: false, foreign_key: true |
+# アプリケーションを作成した背景
+今年東京でも例年になく積雪がありましたが、その雪で作った雪だるまは手のひらサイズ程で、シャーベット状だったり、泥混じりだったりしたのですが、それでも雪（氷？）を手に嬉しそうに遊ぶ子供たちを見て切なくなりました。私の田舎では、毎年１mを超える積雪があり、幼い頃はありったけの雪でかまくらや雪合戦をしたものです。都会の子供たちにもこのような経験ができる場所があればいいなと切に思いました。また、私の祖父母は人里離れた山奥に2人きりで暮らしています。毎日暇だと言っている祖父母にとって、来客があれば生活に張りが出るのではないかと考えました。
 
-### Association
+# 洗い出した要件
+要件定義シート_inaka-ikotto - Google Sheets
+https://docs.google.com/spreadsheets/d/1wzg6_fK7ZsDjemGfx-eLMEDRnARW6RKDrAiVbRtNn5Y/edit#gid=982722306
 
-- belongs_to :user
-- has_many :comments
+# 実装した機能についての画像やGIFおよびその説明
+後日添付予定
 
-## comments テーブル
+# 実装予定の機能
+購入機能
+フォロー機能
+お気に入り機能
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| content   | text       | null: false                    |
-| event     | references | null: false, foreign_key: true |
-| user      | references | null: false, foreign_key: true |
+# データベース設計
+作成途中
 
-### Association
+# 画面遷移図
+作成途中
 
-- belongs_to :user
-- belongs_to :event
+# 開発環境
+*フロントエンド
+*バックエンド
+*インフラ
+*テキストエディタ
+
+# ローカルでの動作方法
+% git clone https://github.com/snkn510/inakaikotto.git
+% cd 
+% bundle install
+% yarn install
