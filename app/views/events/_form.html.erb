@@ -15,8 +15,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :image, "イベントのイメージ画像" %><br />
-    <%= f.file_field :image, id:"event_image" %>
+    <%= f.label :image, "イベントと宿のイメージ画像" %><br />
+    <%= f.file_field :images, multiple: true, id:"event_image" %>
   </div>
 
   <div class="field">

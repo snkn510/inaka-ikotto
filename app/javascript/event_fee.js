@@ -1,5 +1,4 @@
 window.addEventListener('load', () => {
-  window.onload = function(){const feeInput = document.getElementById("event_fee")};
-  console.log(feeInput);
-  
+  const priceInput = document.getElementById("event_fee");
+console.log(priceInput);
 });

@@ -19,7 +19,11 @@
         </div>
       <% end %>
       <div class="event__image">
-        <%= image_tag @event.image %>
+        <% if @event.images.attached? %>
+          <% @event.images.each do |image| %>
+             <%= image_tag image.variant(resize: '500x500').processed %>
+          <% end %>
+        <% end %>
       </div>
       <div class="event__body">
         <div class="event__detail">
