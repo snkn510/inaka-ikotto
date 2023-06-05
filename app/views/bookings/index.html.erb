@@ -31,9 +31,8 @@
       <h2 class="page-heading">イベントのイメージ
       </h2>
       <div class="user__card">
-         <%= image_tag @event.image %>
+         <%= image_tag @event.images.first %>
       </div>
-
     <%= form_with(model: @booking_guest, url: event_bookings_path(@event), local: true) do |f| %>
         <%= render 'shared/error_messages', model: @booking_guest %>
       <h2 class="page-heading">お客さま情報</h2>
