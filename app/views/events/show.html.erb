@@ -3,7 +3,7 @@
     <div class="event__wrapper">
       <p class="event__hedding">
         <%= @event.title %>
-        <%= @event.price %>円 / 人数
+        <%= @event.price %>円 / 泊
       </p>
     
       
@@ -38,6 +38,38 @@
             <%= @event.concept %>
           </p>
         </div>
+       
+        <%# もう一個で試す %>
+   <h3>イベント＆宿泊場所</h3>
+    <div class="address">
+      <p><%= @street %></p>
+    </div>
+
+    <div class="map">
+      <div id="map"></div>
+    </div>
+
+    <div type="text/javascript">
+      <script>
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: <%= @event.latitude %>, lng: <%= @event.longitude %> },
+            zoom: 15
+          });
+
+          var marker = new google.maps.Marker({
+            position: { lat: <%= @event.latitude %>, lng: <%= @event.longitude %> },
+            map: map,
+            title: '<%= @event.title %>'
+            
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%=  ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+    </div>
+
+
+        <%# ここまで %>
       </div>
       <div class="event__comments">
         <% if user_signed_in? %>

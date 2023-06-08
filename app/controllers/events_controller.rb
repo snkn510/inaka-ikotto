@@ -24,7 +24,17 @@ class EventsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @event.comments.includes(:user)
+    @event = Event.find(params[:id])
+    
+    # 住所の整形
+    address_parts = @event.address.split(" ")
+    @street = address_parts[0..-2].join(" ")
+    
+    @locations = [
+      { "lat" => @event.latitude, "lng" => @event.longitude }
+    ]
   end
+  
 
   def edit
   end
@@ -46,7 +56,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :catch_copy, :concept, :price, images: []).merge(user_id: current_user.id)
+    params.require(:event).permit(:title, :catch_copy, :concept, :price, :address, :latitude, :longitude, images: []).merge(user_id: current_user.id)
   end
 
   def set_event

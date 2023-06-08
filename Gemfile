@@ -63,3 +63,6 @@ group :production do
 end
 
 gem 'rename'
+gem 'dotenv-rails'
+gem 'geocoder'
+gem 'gmaps4rails'

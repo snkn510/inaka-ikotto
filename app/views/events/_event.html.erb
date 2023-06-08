@@ -5,7 +5,7 @@
     <p class="card__summary">
       <%= event.catch_copy %>
     <p class="card__price">
-      <%= event.price %>円 / 人数
+      <%= event.price %>円 / 泊
     </p>
    <%= link_to "by " +  event.user.name, user_path(event.user.id), class: :card__user %>
   </div>

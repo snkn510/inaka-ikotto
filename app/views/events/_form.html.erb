@@ -24,6 +24,11 @@
     <%= f.text_field :price, id:"event_fee" %>円
   </div>
 
+  <div class="field">
+    <%= f.label :address, "イベントの場所" %><br />
+    <%= f.text_field :address, id:"event_place" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "公開する", class: :form__btn  %>
   </div>
