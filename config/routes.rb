@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     resources :bookings, only: [:index, :create]
   end
-  resources :users, only: :show 
+  resources :users, only: [:show, :edit]
 end

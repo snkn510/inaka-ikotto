@@ -21,6 +21,11 @@
         </div>
 
         <div class="field">
+          <%= f.label :avatar, "プロフィール画像" %><br />
+          <%= f.file_field :avatar, id:"user_avatar" %>
+        </div>
+
+        <div class="field">
           <%= f.label :name, "ユーザー名 (ニックネーム)" %><br />
           <%= f.text_field :name, id:"user_name" %>
         </div>
