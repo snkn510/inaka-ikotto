@@ -21,9 +21,12 @@
         </div>
 
         <div class="field">
-          <%= f.label :avatar, "プロフィール画像" %><br />
-          <%= f.file_field :avatar, id:"user_avatar" %>
+          <%= f.label :avatar, "プロフィール画像", class: 'form-control' %><br />
+          <%= f.file_field :avatar, class: 'form-control' %>
+          <%= f.hidden_field :avatar_cache %>
+          <%= image_tag @user.avatar.url, class: 'rounded-circle mt-3', id: 'preview', size: '100x100' %>
         </div>
+
 
         <div class="field">
           <%= f.label :name, "ユーザー名 (ニックネーム)" %><br />
