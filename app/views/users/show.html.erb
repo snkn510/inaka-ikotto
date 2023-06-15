@@ -5,8 +5,14 @@
         <%= "#{@user.name}さんの情報"%>
       </h2>
       
+      <% if user_signed_in? && current_user.id == @user.id  %>
+        <div class="user__manage">
+          <%= link_to "編集する", edit_user_path(@user.id), class: :user__btn %>
+        </div>
+      <% end %>
+
       <%# プロフィール画像 class名は仮%>
-  <%= image_tag @user.avatar.url, class: 'rounded-circle mr15', width: '40', height: '40' %>
+      <%= image_tag @user.avatar.url, class: :avatar %>
       <%# プロフィール画像はここまで class名は仮%>
      
 

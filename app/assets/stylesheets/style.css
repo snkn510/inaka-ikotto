@@ -292,6 +292,38 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+
+/* ユーザー詳細ページ */
+.user__manage{
+  display: flex;
+  justify-content: left;
+  padding: 16px 0 16px;
+}
+.user__btn{
+  display: block;
+  padding: 0.4em 1.6em;
+  font-size: 0.4em;
+  color: #999;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+}
+
+.user__btn:hover {
+  cursor: pointer;
+}
+
+.avatar{
+  width: 50%;
+}
+
+/* ユーザー詳細ページ */
+
+
+
 /* フッター */
 
 .footer {
