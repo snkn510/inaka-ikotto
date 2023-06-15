@@ -40,7 +40,7 @@
         <%= @user.name + "さんのイベント一覧"%>
       </h2>
       <div class="user__card">
-        <%= render partial: 'events/event', collection: @events %>
+        <%= render partial: 'events/event', collection: @events.order(created_at: :desc) %>
       </div>
     </div>
   </div>
