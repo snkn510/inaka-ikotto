@@ -1,5 +1,5 @@
 <div class="card">
-  <%= link_to image_tag(event.images.first, class: :card__img ), event_path(event.id) if event.images.attached? %>
+  <%= link_to image_tag(event.images[0], class: :card__img ), event_path(event.id) if event.images.attached? %>
   <div class="card__body">
     <%= link_to event.title, event_path(event.id), class: :card__title %>
     <p class="card__summary">

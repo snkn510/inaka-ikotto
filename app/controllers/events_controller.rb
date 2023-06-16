@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :catch_copy, :concept, :price, :address, :latitude, :longitude, images: []).merge(user_id: current_user.id)
+    params.require(:event).permit(:title, :catch_copy, :concept, :price, :address, :latitude, :longitude, {images: []}).merge(user_id: current_user.id)
   end
 
   def set_event
