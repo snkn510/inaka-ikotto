@@ -33,7 +33,7 @@
       <div class="user__card">
          <%= image_tag @event.images.first %>
       </div>
-      
+
     <%= form_with(model: @booking_guest, url: event_bookings_path(@event), id: 'charge-form', class: 'transaction-form-wrap', local: true) do |f| %>
         <%= render 'shared/error_messages', model: @booking_guest %>
       <h2 class="page-heading">お客さま情報</h2>
@@ -80,7 +80,7 @@
       <div class="fee-content">
         <span>合計金額</span>
         <span>
-          <strong><span id='sum_fee'></span>円</strong>
+          <strong><span id="sum_fee"></span>円</strong>
         </span>
       </div>
 
@@ -113,7 +113,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "予約する" %>
+        <%= f.submit "予約する", id: "button" %>
       </div>
     <% end %>
     </div>

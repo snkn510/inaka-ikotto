@@ -67,5 +67,5 @@ gem 'dotenv-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'carrierwave', '~> 2.0'
-
 gem 'pry-rails'
+gem 'payjp'

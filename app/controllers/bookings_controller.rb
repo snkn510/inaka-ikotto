@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def create
     @booking_guest = BookingGuest.new(booking_params)
     if @booking_guest.valid?
-      # pay_event
+      pay_event
       @booking_guest.save
       redirect_to root_path
     else
@@ -23,11 +23,25 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking_guest).permit(:last_name, :first_name, :phone_number, :email, :checkin, :checkout, :message, :adult, :child).merge(
-      user_id: current_user.id, event_id: params[:event_id] #, token: params[:token]
+      user_id: current_user.id, event_id: params[:event_id] , token: params[:token]
     )
   end
 
   def set_event
     @event = Event.find(params[:event_id])
   end
+
+  def pay_event
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] 
+    
+    event_price = (@event.price * (@booking_guest.adult.to_i + @booking_guest.child.to_i)).to_i
+
+    Payjp::Charge.create(
+      amount: event_price, 
+      card: booking_params[:token], 
+      currency: 'jpy'
+    )
+  end
+  
+  
 end

@@ -1,6 +1,6 @@
 class BookingGuest
   include ActiveModel::Model
-  attr_accessor :user_id, :event_id, :last_name, :first_name, :phone_number, :email, :checkin, :checkout, :message, :adult, :child
+  attr_accessor :user_id, :event_id, :last_name, :first_name, :phone_number, :email, :checkin, :checkout, :message, :adult, :child, :token
 
  with_options presence: true do
   # bookingモデルのバリデーション
@@ -15,8 +15,7 @@ class BookingGuest
   validates :checkout
   validates :adult, numericality: { only_integer: true, message: 'Half-width number' }
   validates :child, numericality: { only_integer: true, message: 'Half-width number' }
-  
-  # validates :token
+  validates :token
   end
 
   def save
