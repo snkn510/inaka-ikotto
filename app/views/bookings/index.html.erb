@@ -57,9 +57,14 @@
         <%= f.text_field :email, placeholder:"例）sample@sample.com"%>
       </div>
       <div class="field">
-        <%= f.label :date, "希望日" %>
+        <%= f.label :checkin, "チェックイン" %>
         <span class="indispensable">必須</span>
-        <%= f.date_field :date %>
+        <%= f.date_field :checkin %>
+      </div>
+       <div class="field">
+        <%= f.label :checkout, "チェックアウト" %>
+        <span class="indispensable">必須</span>
+        <%= f.date_field :checkout %>
       </div>
       <div class="field">
         <%= f.label :adult, "大人の人数" %>

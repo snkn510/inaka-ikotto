@@ -15,7 +15,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :image, "イベントと宿のイメージ画像" %><br />
+    <%= f.label :image, "イベントと宿のイメージ画像（最大10枚）" %><br />
     <div id="previews"></div>
     <%# <%= f.file_field :images, multiple: true, id:"event_image" %> 
     <%= f.file_field :images, name: 'event[images][]', data: {index: 0} %>
