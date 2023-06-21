@@ -20,7 +20,7 @@
           </tr>
           <tr>
             <th class="table__col1">料金（一人当たり）</th>
-            <td class="table__col2"><%= @event.price %>円</td>
+            <td class="table__col2" data-event-price="<%= @event.price %>"><%= @event.price %>円</td>
           </tr>
           <tr>
             <th class="table__col1">主催者</th>
@@ -79,7 +79,7 @@
       <div class="fee-content">
         <span>合計金額</span>
         <span>
-          <span id='sum-fee'></span>円
+          <strong><span id='sum_fee'></span>円</strong>
         </span>
       </div>
 
