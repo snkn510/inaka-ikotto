@@ -11,6 +11,23 @@
         </div>
       <% end %>
 
+      <%# 個別メッセージ機能 %>
+      <% unless @user.id == current_user.id %>
+        <% if @is_room == true %>
+          <%= link_to 'メッセージへ', room_path(@room_id) %>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, value: @user.id %>
+            <% end %>
+            <%= f.button type: :submit do %>
+              メッセージを送る
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%# 個別メッセージ機能はここまで %>
+
       <%# プロフィール画像 class名は仮%>
       <%= image_tag @user.avatar.url, class: :avatar %>
       <%# プロフィール画像はここまで class名は仮%>

@@ -69,7 +69,17 @@ a {
   color: #fff;
   background: #87CEFA;
 }
-
+.nav__message{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #87CEFA;
+  text-decoration: none;
+  user-select: none;
+}
+.nav__message:hover{
+  opacity: 0.5;
+}
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -342,12 +352,195 @@ a {
 }
 
 
+/* 個別DMページ */
+
+.line__container {
+  padding:0;
+  background: #dfcba5;
+  overflow: hidden;
+  width: 65%;
+  margin: 20px auto;
+  font-size: 80%;
+
+}
+
+/* タイトル部分 */
+.line__container .line__title {
+  background: #904644;
+  padding: 10px;
+  text-align: center;
+  font-size: 150%;
+  color: #ffffff;
+}
+
+/* 会話部分 */
+.line__container .line__contents {
+  padding: 10px;
+  overflow: hidden;
+  line-height: 135%;
+}
+
+.line__container .scroll {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+
+/* 相手の会話 */
+.line__container .line__left {
+    position: relative;
+    display: block;
+    margin-bottom: 5px;
+    max-width: 50%;
+    clear: both;
+    word-break: break-all;
+    text-align: justify;
+}
+
+
+
+/* アイコン画像 */
+.line__container .line__left figure {
+    width: 50px;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* 正方形を用意 */
+.line__container .line__left figure img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.line__container .line__left .line__left-text {
+  margin-left: 70px;
+  
+}
+
+.line__container .line__left .line__left-text .name {
+  font-size: 80%;
+  color: #ffffff;
+}
+
+/* コメントエリア */
+.line__container .line__left .text {
+  margin: 0;
+  position: relative;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+
+/* 吹き出し */
+.line__container .line__left .text::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -10px;
+  top: 10px;
+  border-right: 20px solid #ffffff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.text{
+  display: inline-block; /* テキスト幅に合わせて要素をインラインブロックにする */
+  max-width: calc(100% - 70px); /* 最大幅をアイコンの幅を考慮して設定 */
+  margin-left: 70px; /* アイコンの幅に合わせて左側のマージンを設定 */
+}
+
+
+
+/* 自分の会話 */
+.line__container .line__right {
+    position: relative;
+    display: block;
+    margin: 5px 0;
+    max-width: 75%;
+    float: right;
+    margin-right: 15px;
+    clear: both;
+}
+
+/* コメントエリア */
+.line__container .line__right .text {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #8de055;
+  margin: 0;
+  margin-left: 80px;
+}
+
+/* 吹き出し */
+.line__container .line__right .text::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: -10px;
+  top: 10px;
+  border-left: 20px solid #8de055;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* DM送信ボタン */
+
+.chat-form-box {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.chat-form-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-form-group input[type="text"] {
+  margin-right: 20px;
+  width: 50%;
+  height: 40px;
+  padding: 10px 10px;
+}
+
+.chat-form-group input[type="submit"] {
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  background-color: #fafafa;
+  color: #e1c0b6;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #e1c0b6 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+.chat-form-group input[type="submit"]:hover{
+  background: #e1c0b6;
+  color: #fff;
+}
+
+
 
 /* フッター */
-
 .footer {
   background-color: #999;
   padding: 10px 0;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 .copyright {
   text-align: center;

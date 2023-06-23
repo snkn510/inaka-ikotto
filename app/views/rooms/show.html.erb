@@ -1,0 +1,43 @@
+<div class="message__area">
+  <div class="line__container">
+    <!-- タイトル -->
+    <div class="line__title">
+      <%= "#{@another_entry.user.name}さんとのメッセージ" %>
+    </div>
+    
+    <!-- 会話エリア -->
+    <div class="line__contents scroll">
+      <% @messages.each do |m| %>
+        <!-- 自分の吹き出し -->
+        <% if m.user_id == current_user.id %>
+          <div class="line__right">
+            <div class="text">
+              <%= m.body %>
+            </div>
+          </div>
+        <!-- 相手の吹き出し -->
+        <% else %>
+          <div class="line__left">
+            <figure>
+              <%= image_tag m.user.avatar.url %>
+            </figure>
+            <div class="line__left-text">
+              <div class="name"><%= m.user.name %></div>
+              <div class="text"><%= m.body %></div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="chat-form-box">
+    <%= form_for @message do |f| %>
+      <div class="chat-form-group">
+        <%= f.text_field :body, placeholder:"メッセージを入力してください" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "送信する" %>
+      </div>
+    <% end %>
+  </div>
+</div>

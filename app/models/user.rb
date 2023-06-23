@@ -16,4 +16,7 @@ class User < ApplicationRecord
   has_many :events
   has_many :comments
   has_many :bookings
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
+ 
 end
