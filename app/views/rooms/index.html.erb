@@ -1,25 +1,36 @@
-<% @another_entries.each do |entry| %>
-  <%= link_to room_path(entry.room) do %>
-    <div class="card">
-      <div class="card-body">
-        <div>
-          <div class="d-flex">
-            <div class="chat-avatar">
-              <object>
-                <%= link_to user_path(entry.user) do %>
-                  <%= image_tag entry.user.avatar_image %>
-                <% end %>
-              </object>
+<div class="m-wrappper">
+  <div class="m-title">
+    <%= "#{current_user.name}さんのメッセージ一覧" %>
+  </div>
+
+  <% @another_entries.each do |entry| %>
+    <%= link_to room_path(entry.room) do %>
+      <div class="cards">
+        <div class="card-body">
+        
+            <div class="d-flex">
+              <div class="chat-avatar">
+                <object>
+                  <%= link_to user_path(entry.user.id) do %>
+                    <%= image_tag entry.user.avatar.url %>
+                  <% end %>
+                </object>
+              </div>
+              <div class="chat-user-name">
+                <%= entry.user.name %>
+              </div>
             </div>
-            <div class="chat-user-name">
-              <%= entry.user.display_name %>
+            <div class="chat-text">
+              <% message = Message.find_by(id: entry.room.message_ids.last)&.body %>
+              <% truncated_message = truncate(message, length: 10, omission: '...') %>
+              <%= truncated_message %>
             </div>
           </div>
-          <div class="chat-text">
-            <%= Message.find_by(id: entry.room.message_ids.last)&.body %>
-          </div>
-        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+
+</div>
+
+
+

@@ -15,22 +15,16 @@ class RoomsController < ApplicationController
       my_room_id << entry.room.id
     end
     # 自分のroom_idでuser_idが自分じゃないのを取得
-    @another_entries = Entry.where(room_id: my_room_id).where.not(user_id: current_user.id)
+    @another_entries = Entry.where(room_id: my_room_id).where.not(user_id: current_user.id).order(created_at: :desc)
   end
 
   def show
     @room = Room.find(params[:id])
-    @messages = @room.messages.includes(:user)
+    @messages = @room.messages.all
     @message = Message.new
     @entries = @room.entries
     @another_entry = @entries.where.not(user_id: current_user.id).first
   end
+
   
-
-  private
-
-  def mark_messages_as_read(messages)
-    unread_messages = messages.where(read: false)
-    unread_messages.each(&:mark_as_read!)
-  end
 end

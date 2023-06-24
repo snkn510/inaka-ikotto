@@ -58,22 +58,22 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #d58e6f;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #d58e6f solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #d58e6f;
 }
 .nav__message{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #d58e6f;
   text-decoration: none;
   user-select: none;
 }
@@ -84,7 +84,7 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #d58e6f;
   text-decoration: none;
   user-select: none;
 }
@@ -99,6 +99,7 @@ a {
 
 .form__text {
   width: 50%;
+  resize: none;
 }
 
 .field{
@@ -116,8 +117,8 @@ a {
   color: #fff;
   text-decoration: none;
   user-select: none;
-  background: #87CEFA;
-  border: 1px #87CEFA solid;
+  background: #d58e6f;
+  border: 1px #d58e6f solid;
   border-radius: 3px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   transition: 0.2s ease;
@@ -351,6 +352,57 @@ a {
   width: 50%;
 }
 
+/* 個別DMページ一覧*/
+.m-title{
+  text-align: center;
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center; /* 水平方向の中央寄せ */
+  border: #904644;
+}
+
+.card-body{
+  display: flex;
+  margin-bottom: 30px;
+  border: solid 2px #e6bc87; 
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
+  align-items: center;
+}
+.d-flex{
+  display: flex;
+  align-items: center; 
+}
+
+.chat-text {
+  text-align: center;
+  flex-grow: 1; /* 残りのスペースを均等に分配して中央に配置 */
+}
+
+/* アイコン画像 */
+.chat-avatar {
+  width: 50px;
+  padding: 0;
+  margin-right: 10px; /* 追加 */
+}
+
+.chat-avatar img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.chat-user-name{
+  align-items: center;
+  flex-grow: 1; /* 追加 */
+}
+
 
 /* 個別DMページ */
 
@@ -361,7 +413,7 @@ a {
   width: 65%;
   margin: 20px auto;
   font-size: 80%;
-
+  border-radius: 10px;
 }
 
 /* タイトル部分 */
@@ -505,11 +557,14 @@ a {
   align-items: center;
 }
 
-.chat-form-group input[type="text"] {
+.chat-form-group textarea {
   margin-right: 20px;
   width: 50%;
   height: 40px;
   padding: 10px 10px;
+  border: 3px #8aa7a1 solid;
+  resize: none; 
+  border-radius: 3px;
 }
 
 .chat-form-group input[type="submit"] {
