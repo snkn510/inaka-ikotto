@@ -352,6 +352,22 @@ a {
   width: 50%;
 }
 
+.pv__message{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: orange;
+  text-decoration: none;
+  user-select: none;
+  border: 1px orange solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin-bottom: 10px;
+}
+.pv__message:hover{
+  color: #fff;
+  background: orange;
+}
 /* 個別DMページ一覧*/
 .m-title{
   text-align: center;

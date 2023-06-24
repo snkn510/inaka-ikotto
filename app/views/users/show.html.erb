@@ -14,7 +14,7 @@
       <%# 個別メッセージ機能 %>
       <% unless @user.id == current_user.id %>
         <% if @is_room == true %>
-          <%= link_to 'メッセージへ', room_path(@room_id) %>
+          <%= link_to '個別メッセージへ', room_path(@room_id), class: :pv__message %><br>
         <% else %>
           <%= form_for @room do |f| %>
             <%= fields_for @entry do |e| %>
