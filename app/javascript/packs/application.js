@@ -11,6 +11,8 @@ require("../event_fee");
 require('../preview')
 require("../card")
 require("../message")
+require("../profile")
+require("../profile_edit")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

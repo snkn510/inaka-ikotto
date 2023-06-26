@@ -129,6 +129,11 @@ a {
   cursor: pointer;
 }
 
+#profile_img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
 /* メイン */
 
 .greeting{
