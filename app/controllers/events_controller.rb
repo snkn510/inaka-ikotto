@@ -2,10 +2,9 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy, :update]
   before_action :set_event, only: [:edit, :show, :update, :destroy, :move_to_index]
   before_action :move_to_index, except: [:index, :show, :new, :create]
-  
 
   def index
-    @events = Event.includes(:user).order("created_at DESC")
+    @events = Event.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -25,16 +24,15 @@ class EventsController < ApplicationController
     @comment = Comment.new
     @comments = @event.comments.includes(:user)
     @event = Event.find(params[:id])
-    
+
     # 住所の整形
-    address_parts = @event.address.split(" ")
-    @street = address_parts[0..-2].join(" ")
-    
+    address_parts = @event.address.split(' ')
+    @street = address_parts[0..-2].join(' ')
+
     @locations = [
-      { "lat" => @event.latitude, "lng" => @event.longitude }
+      { 'lat' => @event.latitude, 'lng' => @event.longitude }
     ]
   end
-  
 
   def edit
   end
@@ -56,17 +54,17 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :catch_copy, :concept, :price, :address, :latitude, :longitude, {images: []}).merge(user_id: current_user.id)
+    params.require(:event).permit(:title, :catch_copy, :concept, :price, :address, :latitude, :longitude,
+                                  { images: [] }).merge(user_id: current_user.id)
   end
 
   def set_event
-    @event = Event.find (params[:id])
+    @event = Event.find(params[:id])
   end
 
   def move_to_index
-    if !(user_signed_in? && current_user.id == @event.user_id)
-      redirect_to action: :index
-    end
+    return if user_signed_in? && current_user.id == @event.user_id
+
+    redirect_to action: :index
   end
 end
-
