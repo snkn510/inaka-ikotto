@@ -614,6 +614,11 @@ a {
   color: #fff;
 }
 
+.chat-form-group textarea,
+.chat-form-group input[type="submit"] {
+  margin-bottom: 10px;
+}
+
 
 
 /* フッター */
