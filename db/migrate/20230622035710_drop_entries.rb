@@ -1,8 +1,5 @@
 class DropEntries < ActiveRecord::Migration[6.0]
   def change
-    drop_table :entries do |t|
-      t.references :user, null: false, foreign_key: true
-      t.references :room, null: false, foreign_key: true
-    end
+    drop_table :entries if table_exists?(:entries)
   end
 end
