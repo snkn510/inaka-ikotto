@@ -69,6 +69,7 @@ a {
   color: #fff;
   background: #d58e6f;
 }
+
 .nav__message{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -181,6 +182,12 @@ a {
   text-align: right;
   text-decoration: underline;
 }
+
+/* エラーメッセージ */
+.error-message {
+  color: red;
+}
+
 
 /* イベント投稿プレビュー */
 #previews {
@@ -302,6 +309,7 @@ a {
 .user__wrapper{
   min-height: calc(100vh - 161px);
 }
+
 .table{
   border-collapse: collapse;
   margin-bottom: 32px;
@@ -667,3 +675,186 @@ a {
     width: 100%;
   }
 }
+
+ /* 予約ページ */
+
+ .user__card__img {
+  max-width: 200px; /* ユーザーカードの最大幅を指定 */
+  max-height: 200px; /* ユーザーカードの最大高さを指定 */
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.user__card__img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.any {
+  background: #b9d0b1;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form-wrap {
+  width: 50%;
+  background-color: white;
+  padding-bottom: 70px;
+}
+
+.form-group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.form-text-wrap {
+  width: 100%;
+  height: 20%;
+}
+
+.form-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input-default {
+  width: 40%;
+  margin-top: 5px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+textarea {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+}
+
+
+/* カード情報の入力 */
+.credit-card-form {
+  border-bottom: 2px solid #f5f5f5;
+  margin-top: 15px;
+  padding-bottom: 30px;
+}
+
+.available-card {
+  display: flex;
+  height: 35px;
+}
+
+.card-logo {
+  width: 40px;
+  margin: 5px 5px;
+}
+
+
+
+.input-expiration-date-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.input-expiration-date {
+  width: 100px; /* 入力欄の長さを調整 */
+  margin-top: 5px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  line-height: 45px;
+  text-align: center; /* 入力を中央揃えにする */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+
+.input-cvc {
+  width: 100px; /* 入力欄の長さを調整 */
+  margin-top: 5px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  line-height: 45px;
+  text-align: center; /* 入力を中央揃えにする */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+
+/* /カード情報の入力 */
+
+#button {
+  margin-bottom: 70px;
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #d58e6f;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #d58e6f solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+#button:hover {
+  color: #fff;
+  background: #d58e6f;
+}
+
+
+.form-group {
+  width: 100%;
+}
+
+
+

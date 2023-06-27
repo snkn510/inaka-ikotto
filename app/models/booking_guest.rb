@@ -1,6 +1,6 @@
 class BookingGuest
   include ActiveModel::Model
-  attr_accessor :user_id, :event_id, :last_name, :first_name, :phone_number, :email, :checkin, :checkout, :message, :adult, :child, :token
+  attr_accessor :user_id, :event_id, :last_name, :first_name, :phone_number, :email, :checkin, :checkout, :message, :adult, :child, :infant, :token
 
  with_options presence: true do
   # bookingモデルのバリデーション
@@ -22,7 +22,7 @@ class BookingGuest
     # 予約情報を保存し、変数bookingに代入する
     booking = Booking.create(user_id: user_id, event_id: event_id)
     # ゲストの情報を保存する
-    Guest.create(last_name: last_name, first_name: first_name,  phone_number: phone_number, email: email, checkin: checkin, checkout: checkout, message: message, adult: adult, child: child, booking_id: booking.id)
+    Guest.create(last_name: last_name, first_name: first_name,  phone_number: phone_number, email: email, checkin: checkin, checkout: checkout, message: message, adult: adult, child: child, infant: infant, booking_id: booking.id)
   end
 end
 

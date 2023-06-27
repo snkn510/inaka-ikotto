@@ -2,7 +2,7 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
-      <h2 class="page-heading">イベント内容
+      <h2 class="page-heading">イベント内容の確認
       </h2>
       <table class="table">
         <tbody>
@@ -30,91 +30,142 @@
       </table>
       <h2 class="page-heading">イベントのイメージ
       </h2>
-      <div class="user__card">
+      <div class="user__card__img">
          <%= image_tag @event.images.first %>
       </div>
 
     <%= form_with(model: @booking_guest, url: event_bookings_path(@event), id: 'charge-form', class: 'transaction-form-wrap', local: true) do |f| %>
-        <%= render 'shared/error_messages', model: @booking_guest %>
-      <h2 class="page-heading">お客さま情報</h2>
-      <div class="field">
-      <%= f.label :last_name, "お名前（姓）" %>
-      <span class="indispensable">必須</span>
-      <%= f.text_field :last_name %>
+      <%= render 'shared/error_messages', model: @booking_guest, class: 'error-message' %>
+    <div class='address-form'>
+      <h2 class="page-heading">お客さま情報入力</h2>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">お名前（姓）</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :last_name, class:"input-default", placeholder:"例）山田" %>
       </div>
-      <div class="field">
-      <%= f.label :first_name, "お名前（名）" %>
-      <span class="indispensable">必須</span>
-      <%= f.text_field :first_name %>
+       <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">お名前（名）</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :first_name, class:"input-default", placeholder:"例）花子" %>
       </div>
-      <div class="field">
-        <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
-        <span class="indispensable">必須</span>
-        <%= f.text_field :phone_number, placeholder:"例）09012345678",maxlength:"11"%>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">電話番号(ハイフンなし)</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :phone_number, class:"input-default", placeholder:"例）09012345678",maxlength:"11" %>
       </div>
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %>
-        <span class="indispensable">必須</span>
-        <%= f.text_field :email, placeholder:"例）sample@sample.com"%>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">メールアドレス</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :email, class:"input-default", placeholder:"例）sample@sample.com" %>
       </div>
-      <div class="field">
-        <%= f.label :checkin, "チェックイン" %>
-        <span class="indispensable">必須</span>
-        <%= f.date_field :checkin %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">チェックイン</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.date_field :checkin, class:"input-default" %>
       </div>
-       <div class="field">
-        <%= f.label :checkout, "チェックアウト" %>
-        <span class="indispensable">必須</span>
-        <%= f.date_field :checkout %>
-      </div>
-      <div class="field">
-        <%= f.label :adult, "大人の人数" %>
-        <span class="indispensable">必須</span>
-        <%= f.text_field :adult, id: "adult_number" %>名
-      </div>
-      <div class="field">
-        <%= f.label :child, "子供の人数(３歳以上)" %>
-        <span class="indispensable">必須</span>
-        <%= f.text_field :child, id: "child_number" %>名
-      </div>
-      <div class="fee-content">
-        <span>合計金額</span>
-        <span>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">チェックアウト</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.date_field :checkout, class:"input-default" %>
+      </div>      
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">大人の人数(18歳以上)</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :adult, id: "adult_number", class:"input-default" %>名
+      </div>  
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">子供の人数(3歳以上)</label>
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_field :child, id: "child_number", class:"input-default" %>名
+      </div> 
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">乳幼児の人数(0〜2歳)</label>
+          <span class="any">任意</span>
+        </div>
+          <%= f.text_field :infant, class:"input-default" %>名
+      </div>   
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">合計金額</label>
+          <span>
           <strong><span id="sum_fee"></span>円</strong>
-        </span>
-      </div>
+          </span>
+        </div>
+      </div>  
 
-      <div class="field">
-        <%= f.label :message, "到着予定時刻" %>
-        <span class="indispensable">任意</span>
-        <%= f.text_area :message, placeholder:"例）10時" %>
-      </div>
-      <h2 class="page-heading">お支払い情報</h2>
-     <div class='field'>
-     <p>カード番号</p>
-     <span class="indispensable">必須</span>
-     <div id="number-form" class="input-default"></div>
-      <div class='available-card'>
-        <%= image_tag 'card-visa.gif', class: 'card-logo'%>
-        <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
-        <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
-        <%= image_tag 'card-amex.gif', class: 'card-logo'%>
-      </div>
-     </div>
-      <div class='field'>
-        <p>期限</p>
-        <span class="indispensable">必須</span>
-        <div id="expiry-form" class="input-default"></div>
-      </div>
-      <div class='field'>
-        <p>カード背面4桁もしくは3桁の番号</p>
-        <span class="indispensable">必須</span>
-        <div id="cvc-form" class="input-default"></div>
-      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">備考（到着予定時刻etc）</label>
+          <span class="any">任意</span>
+        </div>
+          <%= f.text_area :message, class:"input-default", placeholder:"例）10時頃に到着します。" %>
+      </div>  
 
-      <div class="actions">
+
+
+
+
+<%# カード情報の入力 %>
+    <div class='credit-card-form'>
+      <h2 class='page-heading'>
+        クレジットカード情報入力
+      </h2>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">カード情報</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div id="number-form" class="input-default"></div>
+        <div class='available-card'>
+          <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+          <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+          <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
+          <%= image_tag 'card-amex.gif', class: 'card-logo'%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">有効期限</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-expiration-date-wrap'>
+          <div id="expiry-form" class="input-expiration-date"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">セキュリティコード</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div id="cvc-form" class="input-cvc"></div>
+      </div>
+    </div>
+    <%# /カード情報の入力 %>
+
+
+   
+      <div class='book-btn'>
         <%= f.submit "予約する", id: "button" %>
       </div>
+    </div>
     <% end %>
     </div>
   </div>

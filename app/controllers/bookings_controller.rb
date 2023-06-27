@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking_guest).permit(:last_name, :first_name, :phone_number, :email, :checkin, :checkout, :message, :adult, :child).merge(
+    params.require(:booking_guest).permit(:last_name, :first_name, :phone_number, :email, :checkin, :checkout, :message, :adult, :child, :infant).merge(
       user_id: current_user.id, event_id: params[:event_id] , token: params[:token]
     )
   end
