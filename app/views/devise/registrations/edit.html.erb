@@ -4,7 +4,6 @@
       <h2 class="page-heading">ユーザー情報編集</h2>
 
      <%= form_with model: @user, id: 'edit_regi', url: user_registration_path, local: true do |f| %>
-
         <div class="field">
           <%= f.label :avatar, "プロフィール画像", class: 'form-control' %><br />
           <div id='profile_img_edit'></div>
