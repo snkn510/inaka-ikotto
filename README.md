@@ -2,7 +2,7 @@
 inaka-ikotto （田舎行こっと）
 
 # アプリケーション概要
-都会の家族と過疎地の家をマッチングし、田舎ならではの遊びや体験が売り買いできるアプリです。
+都会の家族と田舎の家をマッチングし、田舎ならではの遊びや体験が売り買いできるアプリです。
 
 # URL
 https://inaka-ikotto.onrender.com
@@ -12,9 +12,15 @@ https://inaka-ikotto.onrender.com
 
 ・Basic認証PASS：5555
 
-・テスト用メールアドレス：222@222
+(ホストとして)  
+・テスト用メールアドレス：123@123
 
-・テスト用パスワード：222bbb
+・テスト用パスワード：123abc
+
+(ゲストとして)  
+・テスト用メールアドレス：345@345
+
+・テスト用パスワード：345def
 
 ・テスト用カード番号：4242424242424242
 
@@ -32,6 +38,8 @@ https://inaka-ikotto.onrender.com
 1. トップページ（一覧ページ）のヘッダーからユーザー新規登録を行う
 2. 一覧ページの中のイベント画像からイベント詳細に移動し、「予約画面へ進む」を押すと、お客さま情報やカード情報を入力し予約する
 3. イベント主催者に質問等あればイベント詳細ページのコメント欄または、個別メッセージで質問できる
+＊コメント欄でのコメントは不特定多数のユーザーに公開されるため、個人的な相談は個別メッセージを推奨する  
+
 
 # アプリケーションを作成した背景
 今年東京でも例年になく積雪がありましたが、その雪で作った雪だるまは手のひらサイズ程で、シャーベット状だったり、泥混じりだったりしたのですが、それでも雪（氷？）を手に嬉しそうに遊ぶ子供たちを見て切なくなりました。私の田舎では、毎年１mを超える積雪があり、幼い頃はありったけの雪でかまくらや雪合戦をしたものです。都会の子供たちにもこのような経験ができる場所があればいいなと切に思いました。また、私の祖父母は人里離れた山奥に2人きりで暮らしています。毎日暇だと言っている祖父母にとって、来客があれば生活に張りが出るのではないかと考えました。
@@ -41,30 +49,62 @@ https://inaka-ikotto.onrender.com
 https://docs.google.com/spreadsheets/d/1wzg6_fK7ZsDjemGfx-eLMEDRnARW6RKDrAiVbRtNn5Y/edit#gid=982722306
 
 # 実装した機能についての画像やGIFおよびその説明
-後日添付予定
+トップ画面
+[![Image from Gyazo](https://i.gyazo.com/6647aefa359e54249836dc9c34edb9a9.jpg)](https://gyazo.com/6647aefa359e54249836dc9c34edb9a9)
+
+
+イベント詳細ページの下部からコメントする動画
+[![Image from Gyazo](https://i.gyazo.com/f016d3a7f72f177ba8ca65917b118617.gif)](https://gyazo.com/f016d3a7f72f177ba8ca65917b118617)
+
+
+新規イベント投稿フォームで投稿したら詳細ページに遷移する動画
+[![Image from Gyazo](https://i.gyazo.com/4c88f01065645ba1699aa971f0756da2.gif)](https://gyazo.com/4c88f01065645ba1699aa971f0756da2)
+
+
+イベント詳細画面からホストにDMを送る動画
+[![Image from Gyazo](https://i.gyazo.com/0d5562a0b5c62e456f1c15a170d95f08.gif)](https://gyazo.com/0d5562a0b5c62e456f1c15a170d95f08)
+
+
+トップ画面上部のメッセージボタンからメッセージ一覧に遷移し、DMに返信する動画
+[![Image from Gyazo](https://i.gyazo.com/963b6ea521013992319c132409b49154.gif)](https://gyazo.com/963b6ea521013992319c132409b49154)
+
+
+イベント詳細から「予約画面に進む」ボタンを押し、ゲストの情報を入力するフォームへ遷移する動画
+[![Image from Gyazo](https://i.gyazo.com/569427eadf537ea6c305a5cc68beb3bd.gif)](https://gyazo.com/569427eadf537ea6c305a5cc68beb3bd)
+
+
+予約画面の大人と子供の人数を入力すると、合計金額が自動で変換される動画
+[![Image from Gyazo](https://i.gyazo.com/ff3a79581793fc8288e0f25113b4ebae.gif)](https://gyazo.com/ff3a79581793fc8288e0f25113b4ebae)
+
 
 # 実装予定の機能
-購入機能
+メッセージ通知機能
 フォロー機能
 お気に入り機能
 
 # データベース設計
-作成途中
+![inaka-ikotto](https://github.com/snkn510/inaka-ikotto/assets/128602031/74f6afb5-6ad0-447b-8c4b-f1a7225279a5)
+
 
 # 画面遷移図
-作成途中
+![inaka-ikotto-pages](https://github.com/snkn510/inaka-ikotto/assets/128602031/b1bd2b28-9938-44ba-8fd9-7dfef49516d4)
 
 # 開発環境
-・フロントエンド
-・バックエンド
-・インフラ
-・テキストエディタ
+・フロントエンド: HTML, CSS, Javascript  
+・バックエンド: Ruby, Ruby on Rails  
+・インフラ: Github, Render（デプロイ）  
+・テスト: Rspec  
+・テキストエディタ: VScode  
+・端末: macOS  
+・使用したサービス: Canva（ロゴ作成）
 
 # ローカルでの動作方法
-% git clone https://github.com/snkn510/inakaikotto.git
-
-% cd 
-
-% bundle install
-
+% git clone https://github.com/snkn510/inaka-ikotto.git  
+% cd  
+% bundle install  
 % yarn install
+
+# 工夫したポイント
+このアプリを使ってもらいたいターゲットは、ホストとしてイベントを主催してくれる田舎のおばあちゃんです。そのため、最低限の入力欄やボタンの数を制限し、シンプルな仕様を目指しました。ゲストとしては都会に住む子育て中のママです。「子どもも連れてきて欲しい」という意味で、イノシシの絵を使った可愛らしいロゴを付けてみました。
+
+また、コメント機能と個別メッセージ機能を２つ実装した理由は、場合によって使い分けてもらいたいからです。例えば、コメントであれば、「よくある質問」のように、ホスト側が、追加で足したい情報を手軽にコメントできます。ただこちらは不特定多数のユーザーに公開される情報であるため、個人的な相談には不向きです。もし、プライベートな質問であれば、個別メッセージ機能を使い、ホストと１対１の会話ができます。仕様はLINEのようにカジュアルなものを目指しました。
